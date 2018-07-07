@@ -16,6 +16,7 @@ public class Recursions {
 //    }
 
 
+    //TODO: add map to reduce num of steps
     public int numWays(int n, int[] steps) {
         return recWays(n, 0, 0, steps);
     }
