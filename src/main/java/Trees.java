@@ -1,6 +1,7 @@
 import java.util.HashMap;
 
-public class Trees {
+class Trees {
+    Node root;
 
     private HashMap<Integer, Integer> map;
     //private LinkedList<Node> queue;
@@ -12,12 +13,12 @@ public class Trees {
     }
 
 
-    public int verticalSum(int verticalNum, Node root) {
+    int verticalSum(int verticalNum, Node root) {
         iterateAll(root, 0);
         return map.getOrDefault(verticalNum, 0);
     }
 
-    public int maxWidth(Node root) {
+    int maxWidth(Node root) {
         iterateDown(root, 0);
         int max = 1;
 
@@ -36,9 +37,9 @@ public class Trees {
         if (node != null) {
             Integer val = map.get(ind);
             if (val == null) {
-                map.put(ind, node.value);
+                map.put(ind, node.data);
             } else {
-                map.put(ind, val + node.value);
+                map.put(ind, val + node.data);
             }
 
             iterateAll(node.left, ind - 1);
@@ -60,5 +61,22 @@ public class Trees {
             iterateDown(node.right, ind + 1);
         }
     }
+
+
+    boolean checkBST(Node root) {
+        return checkBSTHelper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+
+    private boolean checkBSTHelper(Node node, int min, int max) {
+        if (node == null)
+            return true;
+
+        if (node.data < min || node.data > max)
+            return false;
+
+        return checkBSTHelper(node.left, min, node.data - 1) && checkBSTHelper(node.right, node.data + 1, max);
+    }
+
 
 }

@@ -1,11 +1,9 @@
 class Node {
-    int value;
-    Node left;
-    Node right;
+    int data;
+    Node left, right;
 
-    Node(int value) {
-        this.value = value;
-        right = null;
-        left = null;
+    public Node(int item) {
+        data = item;
+        left = right = null;
     }
 }
