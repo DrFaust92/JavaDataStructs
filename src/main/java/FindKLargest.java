@@ -3,18 +3,18 @@ import java.util.Arrays;
 public class FindKLargest {
 
 
-    public static final FindKLargest instance = new FindKLargest();
+    static final FindKLargest instance = new FindKLargest();
 
     private FindKLargest() {
     }
 
-    public static FindKLargest getInstance() {
+    static FindKLargest getInstance() {
         return instance;
     }
 
 
     // basic use case O(n)
-    public int firstLargest(int size, int[] array) {
+    int firstLargest(int size, int[] array) {
 
         int max = array[0];
         for (int i = 1; i < array.length; i++) {

@@ -1,7 +1,7 @@
 public class Recursions {
 
     //naive 1 or 2 steps
-    public int numWays(int n) {
+    int numWays(int n) {
 
         int[] steps = {1, 2};
         return numWays(n, steps);
@@ -17,7 +17,7 @@ public class Recursions {
 
 
     //TODO: add map to reduce num of steps
-    public int numWays(int n, int[] steps) {
+    int numWays(int n, int[] steps) {
         return recWays(n, 0, 0, steps);
     }
 
